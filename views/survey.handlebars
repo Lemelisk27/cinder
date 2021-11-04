@@ -1,41 +1,45 @@
     <div class="input-group bg-dark mt-2 col-lg-7 mx-auto d-flex flex-column py-3 rounded">
       <div class="col-6 justify-content-left pl-0">
         <label for="birthdate" class="align-middle text-light pr-2">What is your birthdate?</label>
-        <input class="custom-select" type="date" id="birthdate" name="birthdate" min="1900-01-01" max="2021-11-03">
+        <input class="custom-select" type="date" id="birthdate" name="birthdate" min="1950-01-01" max="2011-11-03">
       </div>
       <div class="d-flex flex-row">
         <div class="col-6 pl-0">
           <label for="gender" class="align-middle text-light pr-2">What is your gender?</label>
           <select class="custom-select" id="gender">
-            <option selected>Female</option>
-            <option value="1">Male</option>
+            <option selected></option>
+            <option>Female</option>
+            <option>Male</option>
           </select>
         </div>
         <div class="col-6 pr-0">
           <label for="pref_gender" class="align-middle text-light pr-2">Who would you like to see on this site?</label>
           <select class="custom-select" id="pref_gender">
-            <option selected>Female</option>
-            <option value="1">Male</option>
-            <option value="2">Both</option>
+            <option selected></option>
+            <option>Female</option>
+            <option>Male</option>
+            <option>Both</option>
           </select>
         </div>
       </div>
       <div>
         <label for="goal" class="align-middle text-light pr-2">Why are you joining this dating site?</label>
         <select class="custom-select" id="goal">
-          <option selected>Long-term relationship</option>
-          <option value="1">Just looking for something casual</option>
-          <option value="2">I need programming help</option>
-          <option value="3">None of the above</option>
+          <option selected></option>
+          <option>Long-term relationship</option>
+          <option>Just looking for something casual</option>
+          <option>I need programming help</option>
+          <option>None of the above</option>
         </select>
       </div>
       <div>
         <label for="relationship" class="align-middle text-light pr-2">Relationship-wise, how do you see yourself in the future?</label>
         <select class="custom-select" id="relationship">
-          <option selected>Married/committed with kids</option>
-          <option value="1">Married/committed, but unsure about or don't want kids</option>
-          <option value="2">Kids, but unsure about or don't want marriage/commitment</option>
-          <option value="3">I want to do my own thing forever, or none of the above</option>
+          <option selected></option>
+          <option>Married/committed with kids</option>
+          <option>Married/committed, but unsure about or don't want kids</option>
+          <option>Kids, but unsure about or don't want marriage/commitment</option>
+          <option>I want to do my own thing forever, or none of the above</option>
         </select>
       </div>
       <div class="d-flex flex-column">
@@ -49,18 +53,20 @@
       <div>
         <label for="worker" class="align-middle text-light pr-2">How would you describe your work ethic?</label>
         <select class="custom-select" id="worker">
-          <option selected>Work and energy drinks all night, everynight</option>
-          <option value="1">Hard worker but I need my social life balance</option>
-          <option value="2">Do bare minimum to get the work done and then do other hobbies</option>
+          <option selected></option>
+          <option>Work and energy drinks all night, everynight</option>
+          <option>Hard worker but I need my social life balance</option>
+          <option>Do bare minimum to get the work done and then do other hobbies</option>
         </select>
       </div>
       <div>
         <label for="ideal_date" class="align-middle text-light pr-2">What is your ideal date night?</label>
         <select class="custom-select" id="ideal_date">
-          <option selected>Stay in, get takeout, watch a movie or play video games</option>
-          <option value="1">Go out to a nice restaurant or picnic and stare into each other’s eyes</option>
-          <option value="2">Go out with a group of friends for a game night or drinks</option>
-          <option value="3">Hit the club, take some shots, initiate the bender</option>
+          <option selected></option>
+          <option>Stay in, get takeout, watch a movie or play video games</option>
+          <option>Go out to a nice restaurant or picnic and stare into each other’s eyes</option>
+          <option>Go out with a group of friends for a game night or drinks</option>
+          <option>Hit the club, take some shots, initiate the bender</option>
         </select>
       </div>
       <div class="d-flex flex-column">
@@ -69,3 +75,5 @@
       </div>
       <button id="submitBtn" class="py-1 my-2 col-3 mx-auto bg-secondary text-light">Submit</button>
     </div>
+
+    <script src="/js/survey.js"></script>

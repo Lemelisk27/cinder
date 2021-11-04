@@ -56,7 +56,7 @@ router.get("/userimage",(req,res)=>{
 
 router.get("/userimage/:id",(req,res)=>{
     if(!req.session.user){
-        res.redirect(".")
+        res.redirect("/")
         return
     }
     Image.findOne({
@@ -73,7 +73,7 @@ router.get("/userimage/:id",(req,res)=>{
 
 router.get("/updateprofile",(req,res)=>{
     if(!req.session.user){
-        res.redirect(".")
+        res.redirect("/")
         return
     }
     User.findOne({
@@ -87,6 +87,17 @@ router.get("/updateprofile",(req,res)=>{
             user:hbsUser
         })
     })
+})
+
+router.get("/signup",(req,res)=>{
+    let landingpage = true
+    res.render("signup",{
+        landingpage:landingpage
+    })
+})
+
+router.get("/survey",(req,res)=>{
+    res.render("survey")
 })
 
 module.exports = router

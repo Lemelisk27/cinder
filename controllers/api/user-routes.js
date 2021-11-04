@@ -34,7 +34,6 @@ router.post("/login",(req,res)=>{
                     id:foundUser.id
                 }
                 res.json(foundUser)
-                console.log(req.session.user)
             }
             else{
                 res.redirect("/")
@@ -43,9 +42,49 @@ router.post("/login",(req,res)=>{
     })
 })
 
+router.post("/signup",(req,res)=>{
+    User.create({
+        first_name:req.body.first_name,
+        last_name:req.body.last_name,
+        username:req.body.username,
+        email:req.body.email,
+        password:req.body.password
+    }).then(newUser=>{
+        res.json(newUser)
+    }).catch(err=>{
+        console.log(err)
+        res.status(500).json({message:"An Error Occured",err:err})
+    })
+})
+
 router.get("/logout",(req,res)=>{
     req.session.destroy()
     res.redirect("/")
+})
+
+router.post("/survey",(req,res)=>{
+    if(!req.session.user){
+        res.redirect("/")
+        return
+    }
+    Survey.create({
+        birthdate:req.body.birthdate,
+        gender:req.body.gender,
+        pref_gender:req.body.pref_gender,
+        goal:req.body.goal,
+        relationship:req.body.relationship,
+        language:req.body.language,
+        type:req.body.type,
+        worker:req.body.worker,
+        ideal_date:req.body.ideal_date,
+        bio:req.body.bio,
+        user_id:req.session.user.id
+    }).then(newSurvey=>{
+        res.json(newSurvey)
+    }).catch(err=>{
+        console.log(err)
+        res.status(500).json({message:"An Error Occured",err:err})
+    })
 })
 
 module.exports = router

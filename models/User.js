@@ -36,6 +36,11 @@ User.init({
         validate:{
             len:[8]
         }
+    },
+    has_survey: {
+        type: DataTypes.BOOLEAN,
+        allowNull: false,
+        defaultValue: false
     }
 },
 {
