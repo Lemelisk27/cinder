@@ -17,13 +17,13 @@ router.get("/",(req,res)=>{
 })
 
 router.post("/login",(req,res)=>{
+    req.session.destroy
     User.findOne({
         where:{
             username:req.body.username
         }
     }).then(foundUser=>{
         if(!foundUser){
-            req.session.destroy()
             res.redirect("/")
         }
         else {
@@ -34,13 +34,18 @@ router.post("/login",(req,res)=>{
                     id:foundUser.id
                 }
                 res.json(foundUser)
+                console.log(req.session.user)
             }
             else{
-                req.session.destroy
                 res.redirect("/")
             }
         }
     })
+})
+
+router.get("/logout",(req,res)=>{
+    req.session.destroy()
+    res.redirect("/")
 })
 
 module.exports = router

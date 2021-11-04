@@ -5,9 +5,13 @@ const {User,Survey} = require("../models")
 
 router.get("/",(req,res)=>{
     let landingpage = true
-    res.render("landingpage",{
-        landingpage:landingpage
-    })
+    if(!req.session.user){
+        res.render("landingpage",{
+            landingpage:landingpage
+        })
+        return
+    }
+    res.redirect("/profile")  
 })
 
 router.get("/profile",(req,res)=>{
