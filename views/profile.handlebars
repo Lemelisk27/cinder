@@ -1,5 +1,5 @@
 <div class="card mx-auto col-lg-6 col-sm-11 mt-1 bg-dark text-light">
-    {{#if user.has_survey}}
+    {{#if user.survey.profile_pic}}
     <img src="{{user.survey.profile_pic}}" class="card-img-top mt-2" alt="profile picture">
     {{/if}}
     <div class="card-body">
@@ -18,6 +18,8 @@
         <li class="list-group-item">Type of Programmer: {{user.survey.type}}</li>
         <li class="list-group-item">Type of Worker: {{user.survey.worker}}</li>
         <li class="list-group-item">Ideal Date: {{user.survey.ideal_date}}</li>
+        {{else}}
+        <li class="list-group-item">Please Create Your Profile Below</li>
         {{/if}}
     </ul>
     <div class="card-body text-center">

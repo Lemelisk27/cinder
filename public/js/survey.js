@@ -63,7 +63,6 @@ submitBtn.addEventListener("click",(e)=>{
         }
     }).then(res=>{
         if(res.ok){
-            // location.href = "/profile"
             console.log(res)
         }
         else {

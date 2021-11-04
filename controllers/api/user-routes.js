@@ -80,7 +80,21 @@ router.post("/survey",(req,res)=>{
         bio:req.body.bio,
         user_id:req.session.user.id
     }).then(newSurvey=>{
-        res.json(newSurvey)
+        User.update(
+            {
+                has_survey:true
+            },
+            {
+                where: {
+                    id:req.session.user.id
+                }
+            }
+        ).then(updateUser=>{
+            console.log(updateUser)
+            res.redirect("/profile")
+        }).catch(err=>{
+            console.log(err)
+        })
     }).catch(err=>{
         console.log(err)
         res.status(500).json({message:"An Error Occured",err:err})
