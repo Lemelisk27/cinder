@@ -10,6 +10,7 @@ const surveyData = [
         relationship: "Marriage and kids",
         goal: "Long-term relationship",
         language: "JavaScript",
+        type: "Web Developer",
         worker: "Work and energy drinks all night, everynight",
         ideal_date: "Stay in, get takeout, watch a movie or play video games",
         profile_pic: "https://res.cloudinary.com/coder-mingle/image/upload/v1635835948/beybv9cgzva6chkxxsdz.png"
@@ -23,6 +24,7 @@ const surveyData = [
         relationship: "Marriage but no kids",
         goal: "Just looking for something casual",
         language: "C++",
+        type: "Web Developer",
         worker: "Hard worker but I need my social life balance",
         ideal_date: "Go out to a nice restaurant or picnic and stare into each other’s eyes",
         profile_pic: "https://res.cloudinary.com/coder-mingle/image/upload/v1635835948/co9qy8vxbf2qhc3knea3.png"
@@ -36,6 +38,7 @@ const surveyData = [
         relationship: "Kids but no marital commitment",
         goal: "I need programming help",
         language: "Python",
+        type: "Web Developer",
         worker: "Bare minimum to get the work done then do other hobbies",
         ideal_date: "Go out with a group of friends for a game night or drinks",
         profile_pic: "https://res.cloudinary.com/coder-mingle/image/upload/v1635835948/pwrcttkasibmy1tkt7i2.png"
@@ -49,6 +52,7 @@ const surveyData = [
         relationship: "None of the above",
         goal: "None of the above",
         language: "HTML",
+        type: "Web Developer",
         worker: "None of the above",
         ideal_date: "Hit the club, take some shots, initiate the bender",
         profile_pic: "https://res.cloudinary.com/coder-mingle/image/upload/v1635835948/xeloqi1url6heip5ny3f.png"
@@ -62,6 +66,7 @@ const surveyData = [
         relationship: "Marriage and kids",
         goal: "Long-term relationship",
         language: "JavaScript",
+        type: "Web Developer",
         worker: "Work and energy drinks all night, everynight",
         ideal_date: "Stay in, get takeout, watch a movie or play video games",
         profile_pic: "https://res.cloudinary.com/coder-mingle/image/upload/v1635835947/te0jqgb9bvpalebnfk3d.png"
@@ -75,6 +80,7 @@ const surveyData = [
         relationship: "Marriage but no kids",
         goal: "Just looking for something casual",
         language: "C++",
+        type: "Web Developer",
         worker: "Hard worker but I need my social life balance",
         ideal_date: "Go out to a nice restaurant or picnic and stare into each other’s eyes",
         profile_pic: "https://res.cloudinary.com/coder-mingle/image/upload/v1635835945/opboe2847jkdgqtekmpf.png"
@@ -88,6 +94,7 @@ const surveyData = [
         relationship: "Kids but no marital commitment",
         goal: "I need programming help",
         language: "Python",
+        type: "Web Developer",
         worker: "Bare minimum to get the work done then do other hobbies",
         ideal_date: "Go out with a group of friends for a game night or drinks",
         profile_pic: "https://res.cloudinary.com/coder-mingle/image/upload/v1635835945/jelvqartpd6lwmav6v0d.png"
@@ -101,6 +108,7 @@ const surveyData = [
         relationship: "None of the above",
         goal: "None of the above",
         language: "HTML",
+        type: "Web Developer",
         worker: "None of the above",
         ideal_date: "Hit the club, take some shots, initiate the bender",
         profile_pic: "https://res.cloudinary.com/coder-mingle/image/upload/v1635835948/xeloqi1url6heip5ny3f.png"

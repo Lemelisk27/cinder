@@ -1,0 +1,7 @@
+:root {
+    --border: rgb(252,20,252)
+}
+
+#userImg {
+    border: 2px solid var(--border);
+}
