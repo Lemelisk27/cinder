@@ -1,0 +1,22 @@
+<div class="card mx-auto col-lg-6 col-sm-11 mt-1 bg-dark text-light">
+    <img src="{{user.survey.profile_pic}}" class="card-img-top mt-2" alt="profile picture">
+    <div class="card-body">
+        <h4>{{user.first_name}} {{user.last_name}}</h4>
+        <h5 class="card-title">{{user.username}}</h5>
+        <p class="card-text">{{user.survey.bio}}</p>
+    </div>
+    <ul class="list-group list-group-flush text-dark">
+        <li class="list-group-item">Birthdate: {{user.birthdate}}</li>
+        <li class="list-group-item">Gender: {{user.survey.gender}}</li>
+        <li class="list-group-item">Preferred Gender: {{user.survey.pref_gender}}</li>
+        <li class="list-group-item">Looking for: {{user.survey.relationship}}</li>
+        <li class="list-group-item">Relationship Goal: {{user.survey.goal}}</li>
+        <li class="list-group-item">Favorite Language: {{user.survey.language}}</li>
+        <li class="list-group-item">Type of Worker: {{user.survey.worker}}</li>
+        <li class="list-group-item">Ideal Date: {{user.survey.ideal_date}}</li>
+    </ul>
+    <div class="card-body text-center">
+        <a href="#" class="card-link">View Images</a>
+        <a href="#" class="card-link">Edit Profile</a>
+    </div>
+</div>

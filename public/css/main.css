@@ -1,0 +1,7 @@
+:root {
+    --light: rgb(252,20,252)
+}
+
+header h1 {
+    color: var(--light);
+}
