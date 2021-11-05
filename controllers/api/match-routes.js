@@ -110,7 +110,6 @@ const newMatches = (req,res) => {
                         res.status(500).json({message:"An Error Occured"})
                     })
                 }
-                res.json({message:"Done"})
             }).catch(err=>{
                 console.log(err)
                 res.status(500).json({message:"And Error Occured",err:err})

@@ -5,3 +5,7 @@
 #userImg {
     border: 2px solid var(--border);
 }
+
+a:hover {
+    text-decoration: none;
+}

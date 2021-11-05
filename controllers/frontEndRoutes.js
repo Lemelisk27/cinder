@@ -2,6 +2,10 @@ const express = require('express');
 const router = express.Router();
 const sequelize = require('../config/connection');
 const {User,Survey,Image} = require("../models")
+const newMatches = require("./api/match-routes")
+const Sequelize = require('sequelize');
+const Op = Sequelize.Op
+
 
 router.get("/",(req,res)=>{
     let landingpage = true
@@ -98,6 +102,62 @@ router.get("/signup",(req,res)=>{
 
 router.get("/survey",(req,res)=>{
     res.render("survey")
+})
+
+router.get("/matches",(req,res)=>{
+    if(!req.session.user){
+        res.redirect("/")
+        return
+    }
+    newMatches(req,res)
+    User.findOne({
+        where: {
+            id:req.session.user.id
+        },
+        include:[{model: User, as: "match_one"}]
+    }).then(userData=>{
+        const hbsUser = userData.match_one.map(data=>data.get({plain:true}))
+        const userId = []
+        for (let i = 0; i < hbsUser.length; i++) {
+            userId.push(hbsUser[i].id)        
+        }
+        Survey.findAll({
+            where: {
+                user_id: {
+                    [Op.in]:userId
+                }
+            },
+            include:[User]
+        }).then(surveyData=>{
+            const hbsSurvey = surveyData.map(survey=>survey.get({plain:true}))
+            User.findOne({
+                where: {
+                    id:req.session.user.id
+                },
+                include:[{model: User, as: "match_two"}]
+            }).then(twoData=>{
+                const hbsTwo = twoData.match_two.map(two=>two.get({plain:true}))
+                const twoID = []
+                for (let i = 0; i < hbsTwo.length; i++) {
+                    twoID.push(hbsTwo[i].id)               
+                }
+                Survey.findAll({
+                    where: {
+                        user_id: {
+                            [Op.in]:twoID
+                        }
+                    },
+                    include:[User]
+                }).then(twoSurveyData=>{
+                    const hbsTwoSurvey = twoSurveyData.map(twosurvey=>twosurvey.get({plain:true}))
+                    res.render("matches",{
+                        pending:hbsSurvey,
+                        approved:hbsTwoSurvey
+                    })
+                })
+            })
+        })
+    })
 })
 
 module.exports = router

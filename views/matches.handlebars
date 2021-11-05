@@ -1,0 +1,25 @@
+<link rel="stylesheet" href="/css/userimage.css">
+
+<h1 class="text-center">Pending Matches</h1>
+
+<div class="d-flex flex-row flex-wrap mx-auto justify-content-center">
+    {{#each pending}}
+    <a href="/pending/{{user_id}}" class="d-flex flex-column col-lg-3 m-1 justify-content-center p-2" id="userImg">
+        <img src="{{profile_pic}}" alt="User Picture">
+        <h4 class="text-center mt-auto text-light">{{user.username}}</h4>
+    </a>
+    {{/each}}
+</div>
+
+<div class="bg-dark col-12 pt-2 my-4"></div>
+
+<h1 class="text-center">Aproved Matches</h1>
+
+<div class="d-flex flex-row flex-wrap mx-auto justify-content-center">
+    {{#each approved}}
+    <a href="/matches/{{user_id}}" class="d-flex flex-column col-lg-3 m-1 justify-content-center p-2" id="userImg">
+        <img src="{{profile_pic}}" alt="User Picture">
+        <h4 class="text-center mt-auto text-light">{{user.username}}</h4>
+    </a>
+    {{/each}}
+</div>
