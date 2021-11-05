@@ -66,4 +66,32 @@ router.delete("/pending/aprove",(req,res)=>{
     })
 })
 
+router.delete("/pending/reject",(req,res)=>{
+    First_Match.destroy({
+        where: {
+            user_1:req.session.user.id,
+            user_2:req.body.user_2
+        }
+    }).then(delMatch=>{
+        res.json(delMatch)
+    }).catch(err=>{
+        console.log(err)
+        res.status(500).json({message:"An Error Occured",err:err})
+    })
+})
+
+router.delete("/approved",(req,res)=>{
+    Second_Match.destroy({
+        where: {
+            user_1:req.session.user.id,
+            user_2:req.body.user_2
+        }
+    }).then(delMatch=>{
+        res.json(delMatch)
+    }).catch(err=>{
+        console.log(err)
+        res.status(500).json({message:"An Error Occured",err:err})
+    })
+})
+
 module.exports = router

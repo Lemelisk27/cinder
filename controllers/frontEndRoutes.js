@@ -161,6 +161,29 @@ router.get("/matches",(req,res)=>{
     })
 })
 
+router.get("/matches/:id",(req,res)=>{
+    if(!req.session.user){
+        res.redirect("/")
+        return
+    }
+    User.findOne({
+        where: {
+            id:req.params.id
+        },
+        include: [Survey],
+        attributes:{
+            include: [
+                [sequelize.fn('date_format', sequelize.col('birthdate'), '%m-%d-%Y'), 'birthdate']
+            ]
+        }
+    }).then(userData=>{
+        const hbsUser = userData.get({plain:true})
+        res.render("appmatch",{
+            user:hbsUser
+        })
+    })
+})
+
 router.get("/pending/:id",(req,res)=>{
     if(!req.session.user){
         res.redirect("/")
@@ -170,7 +193,12 @@ router.get("/pending/:id",(req,res)=>{
         where: {
             id:req.params.id
         },
-        include: [Survey]
+        include: [Survey],
+        attributes:{
+            include: [
+                [sequelize.fn('date_format', sequelize.col('birthdate'), '%m-%d-%Y'), 'birthdate']
+            ]
+        }
     }).then(userData=>{
         const hbsUser = userData.get({plain:true})
         res.render("pending",{
