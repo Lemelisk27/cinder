@@ -64,6 +64,7 @@ submitBtn.addEventListener("click",(e)=>{
     }).then(res=>{
         if(res.ok){
             console.log(res)
+            location.href = "/profile"
         }
         else {
             console.log("An Error Occured, Please Try Again")

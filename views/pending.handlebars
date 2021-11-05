@@ -1,0 +1,31 @@
+<div class="card mx-auto col-lg-6 col-sm-11 mt-1 bg-dark text-light">
+    {{#if user.survey.profile_pic}}
+    <img src="{{user.survey.profile_pic}}" class="card-img-top mt-2" alt="profile picture">
+    {{/if}}
+    <div class="card-body">
+        <h4 class="card-title">{{user.username}}</h4>
+        <p class="card-text">{{user.survey.bio}}</p>
+    </div>
+    <ul class="list-group list-group-flush text-dark">
+        {{#if user.has_survey}}
+        <li class="list-group-item">Birthdate: {{user.birthdate}}</li>
+        <li class="list-group-item">Gender: {{user.survey.gender}}</li>
+        <li class="list-group-item">Preferred Gender: {{user.survey.pref_gender}}</li>
+        <li class="list-group-item">Looking for: {{user.survey.relationship}}</li>
+        <li class="list-group-item">Relationship Goal: {{user.survey.goal}}</li>
+        <li class="list-group-item">Favorite Language: {{user.survey.language}}</li>
+        <li class="list-group-item">Type of Programmer: {{user.survey.type}}</li>
+        <li class="list-group-item">Type of Worker: {{user.survey.worker}}</li>
+        <li class="list-group-item">Ideal Date: {{user.survey.ideal_date}}</li>
+        {{else}}
+        <li class="list-group-item">Please Create Your Profile Below</li>
+        {{/if}}
+    </ul>
+    <div class="card-body text-center">
+        <h4>Do You Approve of This match?</h4>
+        <button class="col-2 bg-secondary text-light" id="yesBtn" data-index="{{user.id}}">Yes</button>
+        <button class="col-2 bg-secondary text-light" id="noBtn">No</button>
+    </div>
+</div>
+
+<script src="/js/pending.js"></script>

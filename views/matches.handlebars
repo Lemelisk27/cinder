@@ -1,5 +1,5 @@
 <link rel="stylesheet" href="/css/userimage.css">
-
+{{#if pending}}
 <h1 class="text-center">Pending Matches</h1>
 
 <div class="d-flex flex-row flex-wrap mx-auto justify-content-center">
@@ -12,7 +12,8 @@
 </div>
 
 <div class="bg-dark col-12 pt-2 my-4"></div>
-
+{{/if}}
+{{#if approved}}
 <h1 class="text-center">Aproved Matches</h1>
 
 <div class="d-flex flex-row flex-wrap mx-auto justify-content-center">
@@ -23,3 +24,4 @@
     </a>
     {{/each}}
 </div>
+{{/if}}

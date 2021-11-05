@@ -2,9 +2,9 @@ const express = require('express');
 const router = express.Router();
 const sequelize = require('../config/connection');
 const {User,Survey,Image} = require("../models")
-const newMatches = require("./api/match-routes")
 const Sequelize = require('sequelize');
 const Op = Sequelize.Op
+const newMatches = require("../utils/newMatches")
 
 
 router.get("/",(req,res)=>{
@@ -23,6 +23,7 @@ router.get("/profile",(req,res)=>{
         res.redirect("/")
         return
     }
+    newMatches(req,res)
     User.findOne({
         where: {
             id:req.session.user.id
@@ -156,6 +157,24 @@ router.get("/matches",(req,res)=>{
                     })
                 })
             })
+        })
+    })
+})
+
+router.get("/pending/:id",(req,res)=>{
+    if(!req.session.user){
+        res.redirect("/")
+        return
+    }
+    User.findOne({
+        where: {
+            id:req.params.id
+        },
+        include: [Survey]
+    }).then(userData=>{
+        const hbsUser = userData.get({plain:true})
+        res.render("pending",{
+            user:hbsUser
         })
     })
 })

@@ -44,76 +44,18 @@ router.get("/previous",(req,res)=>{
     })
 })
 
-const newMatches = (req,res) => {
-    let prevArray = []
-    let userGender = ""
-    let userPref = []
-    let matchedUsers = []
-    Matched_With.findAll({
+router.delete("/pending/aprove",(req,res)=>{
+    First_Match.destroy({
         where: {
-            user_1:req.session.user.id
+            user_1:req.session.user.id,
+            user_2:req.body.user_2
         }
-    }).then(prevMatch=>{
-        prevArray.push(req.session.user.id)
-        for (let i = 0; i < prevMatch.length; i++) {
-            prevArray.push(prevMatch[i].user_2)          
-        }
-        User.findAll({
-            where: {
-                id:req.session.user.id
-            },
-            include: [Survey]
-        }).then(userData=>{
-            userGender=userData[0].survey.gender
-            if (userData[0].survey.pref_gender === "Both"){
-                userPref = ["Male","Female"]
-            }
-            else {
-                userPref.push(userData[0].survey.pref_gender)
-            }
-            User.findAll({
-                include: [{model: Survey,
-                    where: {
-                        gender: {
-                            [Op.in]:userPref
-                        },
-                        pref_gender: {
-                            [Op.or]:[userGender,"Both"]
-                        }
-                    }
-                }],
-                where: {
-                    id: {
-                       [Op.notIn]:prevArray
-                    }
-                }
-            }).then(userData=>{
-                for (let i = 0; i < userData.length; i++) {
-                    matchedUsers.push(userData[i].id)
-                }
-                for (let i = 0; i < matchedUsers.length; i++) {
-                    First_Match.create({
-                        user_1:req.session.user.id,
-                        user_2:matchedUsers[i]
-                    }).then(matchData=>{
-                        Matched_With.create({
-                            user_1:req.session.user.id,
-                            user_2:matchedUsers[i]
-                        }).then(withData=>{
-                            console.log(matchData + withData)
-                        }).catch(err=>{
-                            console.log(err)
-                            res.status(500).json({message:"An Error Occured"})
-                        })
-                    }).catch(err=>{
-                        console.log(err)
-                        res.status(500).json({message:"An Error Occured"})
-                    })
-                }
-            }).catch(err=>{
-                console.log(err)
-                res.status(500).json({message:"And Error Occured",err:err})
-            })
+    }).then(delMatch=>{
+        Second_Match.create({
+            user_1:req.session.user.id,
+            user_2:req.body.user_2
+        }).then(createMatch=>{
+            res.json(delMatch + createMatch)
         }).catch(err=>{
             console.log(err)
             res.status(500).json({message:"An Error Occured",err:err})
@@ -122,12 +64,6 @@ const newMatches = (req,res) => {
         console.log(err)
         res.status(500).json({message:"An Error Occured",err:err})
     })
-}
-
-router.get("/new",(req,res)=>{
-    newMatches(req,res)
 })
 
 module.exports = router
-module.exports = newMatches
-    
