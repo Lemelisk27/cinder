@@ -66,6 +66,38 @@ const userData = [
         email: "Armelle@Temitope.com",
         password: "password",
         has_survey: true
+    },
+    {
+        first_name: "Kaarel",
+        last_name: "McCleary",
+        username: "Kaarel123",
+        email: "Kaarel@McCleary.com",
+        password: "password",
+        has_survey: true
+    },
+    {
+        first_name: "Kamau",
+        last_name: "Spalding",
+        username: "Kamau123",
+        email: "Kamau@Spalding.com",
+        password: "password",
+        has_survey: true
+    },
+    {
+        first_name: "Tejal",
+        last_name: "McEwan",
+        username: "Tejal123",
+        email: "Tejal@McEwan.com",
+        password: "password",
+        has_survey: true
+    },
+    {
+        first_name: "Motya",
+        last_name: "Babcock",
+        username: "Motya123",
+        email: "Motya@Babcock.com",
+        password: "password",
+        has_survey: true
     }
 ]
 
